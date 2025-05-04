@@ -1298,7 +1298,7 @@
                     <span class="product-badge">Novidade</span>
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1324,7 +1324,7 @@
                         alt="Camiseta Personalizada">
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1351,7 +1351,7 @@
                     <span class="product-badge">Promoção</span>
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1379,7 +1379,7 @@
                         alt="Almofada">
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1405,7 +1405,7 @@
                         alt="Azulejo">
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1430,7 +1430,7 @@
                         alt="Chaveiro Presente">
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1455,7 +1455,7 @@
                         alt="Canecas Presente">
                     <div class="product-actions">
                         <div class="action-button"><i class="far fa-heart"></i></div>
-                        <div class="action-button"><i class="fas fa-search"></i></div>
+                        <div class="action-button vdd"><i class="fas fa-search"></i></div>
                         <div class="action-button"><i class="fas fa-share-alt"></i></div>
                     </div>
                 </div>
@@ -1676,7 +1676,12 @@
         // 1. Mapa de títulos → URLs de vídeo
         const videoURLs = {
             "Caneca Porcelana": "videoCaneca.mp4",
-            "Camiseta 100% Poliéster": "videoCamiseta.mp4"
+            "Camiseta 100% Poliéster": "videoCamiseta.mp4",
+            "Caneca Mágica": "videoCanecaMagica.mp4",
+            "Almofada Personalizada": "videoAlmofada.mp4",
+            "Azulejo Personalizado": "videoAzulejo.mp4",
+            "Chaveiros Personalizado" : "videoChaveiro.mp4",
+            "Canecas de Aluminio": "videoCanecaAluminio.mp4"
         };
 
         // 2. Cria o estilo do modal
@@ -1740,18 +1745,18 @@
             modal.style.display = 'flex';
         }
 
-        function closeModal() {
+        function closeModall() {
             videoEl.pause();
             modal.style.display = 'none';
         }
 
-        closeBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModall);
         modal.addEventListener('click', e => {
-            if (e.target === modal) closeModal();
+            if (e.target === modal) closeModall();
         });
 
-        // 5. Associa o clique no ícone .fa-search
-        document.querySelectorAll('.product-card .fa-search').forEach(btn => {
+        // 5. Associa o clique no ícone vdd
+        document.querySelectorAll('.product-card .vdd').forEach(btn => {
             btn.style.cursor = 'pointer'; // só pra garantir
             btn.addEventListener('click', () => {
             const card = btn.closest('.product-card');
