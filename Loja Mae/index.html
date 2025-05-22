@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personaliza Store | Canecas e Camisetas Personalizadas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #FF5A5F;
@@ -760,10 +759,10 @@
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
-        <div class="cart-icon">
+        <!-- <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count">3</span>
-        </div>
+        </div> -->
     </header>
 
     <!-- <section class="hero" id="home">
@@ -781,7 +780,7 @@
             <!-- Conteúdo do lado esquerdo -->
             <div class="hero-content">
                 <div class="hero-tag">
-                    <span>✨ Mais de 10.000 clientes satisfeitos</span>
+                    <span>✨ Muitos clientes satisfeitos</span>
                 </div>
 
                 <h1>Canecas, Camisetas & Almofadas <span>Personalizadas</span> do Seu Jeito</h1>
@@ -1263,7 +1262,7 @@
                     <i class="fas fa-tshirt"></i>
                 </div>
                 <h3>2. Selecione o Produto</h3>
-                <p>Escolha entre canecas de porcelana, canecas mágicas, camisetas de algodão e muito mais.</p>
+                <p>Escolha entre canecas de porcelana, canecas mágicas, camisetas e muito mais.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -1366,7 +1365,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="product-price">R$ 59,90 <small
-                            style="text-decoration: line-through; color: #999; font-size: 0.9rem;">R$ 59,90</small>
+                            style="text-decoration: line-through; color: #999; font-size: 0.9rem;">R$ 70,00</small>
                     </div>
                     <button class="add-to-cart">Personalizar</button>
                 </div>
@@ -1579,10 +1578,10 @@
             <div class="footer-column">
                 <h3>Contato</h3>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Rua das Canecas, 123 - São Paulo/SP</li>
-                    <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Av. José Teruel Lopes, 464 - Vila Yolanda, Osasco - SP</li>
+                    <li><i class="fas fa-phone"></i> (11) 97056-9050</li>
                     <li><i class="fas fa-envelope"></i> contato@personalizastore.com.br</li>
-                    <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
+                    <li><i class="fas fa-clock"></i> Seg-Sáb: 9h às 18h</li>
                 </ul>
             </div>
         </div>
@@ -1706,11 +1705,12 @@
             max-width: 380px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             }
-            .js-video-modal .close {
+            .js-video-modal .closee {
             position: absolute;
             top: 10px; right: 20px;
             font-size: 28px;
             cursor: pointer;
+            z-index: 3
             }
             .js-video-modal video {
             width: 100%;
@@ -1725,7 +1725,7 @@
         modal.classList.add('js-video-modal');
         modal.innerHTML = `
             <div class="content">
-            <span class="close">&times;</span>
+            <span class="closee">&times;</span>
             <video controls autoplay>
                 <source class="js-video-src" src="" type="video/mp4">
                 Seu navegador não suporta vídeo HTML5.
@@ -1734,7 +1734,7 @@
         `;
         document.body.appendChild(modal);
 
-        const closeBtn = modal.querySelector('.close');
+        const closeeBtn = modal.querySelector('.closee');
         const videoEl = modal.querySelector('video');
         const sourceEl = modal.querySelector('.js-video-src');
 
@@ -1750,7 +1750,7 @@
             modal.style.display = 'none';
         }
 
-        closeBtn.addEventListener('click', closeModall);
+        closeeBtn.addEventListener('click', closeModall);
         modal.addEventListener('click', e => {
             if (e.target === modal) closeModall();
         });
@@ -1767,6 +1767,81 @@
             });
         });
         });
+
+        // Adiciona funcionalidade de compartilhamento
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os botões de compartilhamento
+    document.querySelectorAll('.fa-share-alt').forEach(shareIcon => {
+        // Encontra o botão pai com a classe .action-button
+        const shareButton = shareIcon.closest('.action-button');
+        
+        shareButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Obtém os dados do produto
+            const productCard = this.closest('.product-card');
+            const productData = {
+                title: productCard.querySelector('.product-title').textContent.trim(),
+                price: productCard.querySelector('.product-price').textContent.trim(),
+                image: productCard.querySelector('img').src,
+                url: window.location.href
+            };
+
+            // Tenta usar a API Web Share
+            if (navigator.share) {
+                navigator.share({
+                    title: `${productData.title} - ${productData.price}`,
+                    text: `Confira este produto: ${productData.title}`,
+                    url: productData.url
+                }).catch(() => fallbackShare(productData));
+            } else {
+                fallbackShare(productData);
+            }
+        });
+    });
+
+    // Fallback para navegadores sem suporte
+    function fallbackShare(data) {
+        const tempInput = document.createElement('input');
+        tempInput.value = `${data.title} - ${data.price}\n${data.url}`;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        
+        try {
+            if (document.execCommand('copy')) {
+                showTemporaryTooltip('Link copiado!', tempInput);
+            }
+        } catch (err) {
+            prompt('Copie o link:', data.url);
+        }
+        document.body.removeChild(tempInput);
+    }
+
+    // Mostra feedback visual temporário
+    function showTemporaryTooltip(text, element) {
+        const tooltip = document.createElement('div');
+        tooltip.textContent = text;
+        tooltip.style = `
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            transform: translateY(-100%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        `;
+        
+        const rect = element.getBoundingClientRect();
+        tooltip.style.top = `${rect.top - 10}px`;
+        tooltip.style.left = `${rect.left + (rect.width/2)}px`;
+        tooltip.style.transform += 'translateX(-50%)';
+        
+        document.body.appendChild(tooltip);
+        setTimeout(() => tooltip.remove(), 2000);
+    }
+});
     </script>
 </body>
 
