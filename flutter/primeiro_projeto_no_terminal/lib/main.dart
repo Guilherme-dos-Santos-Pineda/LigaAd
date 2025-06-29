@@ -6,17 +6,25 @@ void main() {
     SafeArea(
       child: Directionality(
         textDirection: TextDirection.ltr,
-        child: Center(
-          child: (Container(
-            width: 250,
-            height: 250,
-            // color: Colors.blue,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(50),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              color: Colors.amber,
+              height: 100,
+              width: 80,
+              child: Text("SizeBox"),
             ),
-            child: Center(child: Text("Meu Conteudo")),
-          )),
+            Container(
+              height: 90,
+              width: double.infinity,
+              color: Colors.blue,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Aperte aqui"),
+              ),
+            ),
+          ],
         ),
       ),
     ),
