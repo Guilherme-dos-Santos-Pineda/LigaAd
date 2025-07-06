@@ -1,106 +1,113 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AD Espírito Santo',
-      theme: ThemeData(
-        primaryColor: const Color(0xFF2E7D32),
-        fontFamily: 'Roboto',
-      ),
-      home: const HomeScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('lib/assets/home_background.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Container(
-          color: Colors.black.withOpacity(0.4),
+      backgroundColor: Colors.white, // Fundo branco
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Spacer(flex: 2),
+              // Conteúdo principal
               Column(
                 children: [
-                  const Text(
-                    'AD ESPÍRITO SANTO',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      letterSpacing: 1.2,
+                  const SizedBox(height: 20),
+
+                  // Logo
+                  SizedBox(
+                    width: 424,
+                    height: 427,
+                    child: Image.asset(
+                      'assets/home/background.png',
+                      fit: BoxFit.contain,
                     ),
                   ),
-                  const SizedBox(height: 20),
+
+                  const SizedBox(height: 10),
+
+                  // Título
                   const Text(
                     'A Paz do Senhor Jesus',
-                    style: TextStyle(fontSize: 18, color: Colors.white70),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'SF Pro Text',
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                      letterSpacing: -1,
+                      height: 1.5,
+                    ),
                   ),
-                  const SizedBox(height: 10),
+
+                  const SizedBox(height: 8),
+
+                  // Subtítulo
                   const Text(
                     'Bem-vindo à Família AD Espírito Santo',
-                    style: TextStyle(fontSize: 16, color: Colors.white70),
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'SF Pro Text',
+                      color: Colors.black54,
+                    ),
                   ),
-                  const SizedBox(height: 50),
+
+                  const SizedBox(height: 20),
+
+                  // Botões lado a lado
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xFF2E7D32),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30,
-                            vertical: 15,
+                      // Botão "Entrar"
+                      SizedBox(
+                        width: 140,
+                        height: 38,
+                        child: ElevatedButton(
+                          onPressed:
+                              () => Navigator.pushNamed(context, '/login'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFD2A04D),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                          child: const Text(
+                            'Entrar',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                        child: const Text(
-                          'Entrar',
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(width: 20),
-                      OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          side: const BorderSide(color: Colors.white),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30,
-                            vertical: 15,
+                      const SizedBox(width: 16),
+
+                      // Botão "Registrar"
+                      SizedBox(
+                        width: 140,
+                        height: 38,
+                        child: ElevatedButton(
+                          onPressed:
+                              () => Navigator.pushNamed(context, '/register'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFD2A04D),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        child: const Text(
-                          'Registrar',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                          child: const Text(
+                            'Registrar',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
@@ -108,12 +115,21 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const Spacer(flex: 3),
-              const Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  '© Assembleia de Deus Ministerio Espirito Santo',
-                  style: TextStyle(color: Colors.white70, fontSize: 12),
+
+              // Rodapé com espaço embaixo
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: const Text(
+                  '© Assembleia de Deus Ministério Espírito Santo',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'SF Pro Text',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black54,
+                    letterSpacing: -1,
+                    height: 1.5,
+                  ),
                 ),
               ),
             ],

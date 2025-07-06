@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:primeiro_projeto/screens/home_screen.dart';
+import 'package:primeiro_projeto/screens/login_screen.dart';
 import 'package:primeiro_projeto/screens/register_screen.dart';
 
 void main() {
@@ -12,7 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const RegisterScreen(),
+      initialRoute: '/', // Define qual rota será carregada primeiro
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
+      },
     );
   }
 }

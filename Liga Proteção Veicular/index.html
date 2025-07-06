@@ -12,13 +12,30 @@
             --primary: #0056b3;
             --secondary: #ff7b00;
             --accent: #00c853;
+            --accent-light: #ff9e40;
             --dark: #1a2a4a;
             --light: #f8f9fa;
+            --light-bg: #f8fafc;
             --gray: #6c757d;
+            --gray-light: #e2e8f0;
             --danger: #dc3545;
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
+
+        /* :root {
+            --primary: #0056b3;
+            --primary-light: #007bff;
+            --primary-dark: #003a75;
+            --accent: #ff7b00;
+            --accent-light: #ff9e40;
+            --dark: #1a2a4a;
+            --light: #ffffff;
+            --light-bg: #f8fafc;
+            --gray: #6c757d;
+            --gray-light: #e2e8f0;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        } */
 
         * {
             margin: 0;
@@ -43,17 +60,37 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            /* background: linear-gradient(135deg, var(--primary), var(--dark)); */
             color: white;
-            padding: 15px 0;
+            padding: 16px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow);
+            /* box-shadow: var(--shadow); */
+            border-radius: 0px 0px 3px 3px;
+            /* height: 10px; */
         }
 
+        .liquid-glass {
+        background: rgba(255, 255, 255, 0.08); /* fundo semitransparente */
+        border-radius: 20px;
+        padding: 30px;
+        color: #fff;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+        }
+
+        .liquid-glass:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
         .header-container {
+            height: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -68,7 +105,7 @@
         }
 
         .logo i {
-            color: var(--secondary);
+            color: #baa48e;
             margin-right: 10px;
         }
 
@@ -82,12 +119,13 @@
         }
 
         nav ul li a {
-            color: white;
+            color: rgb(170, 170, 170);
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
             padding: 5px 0;
             position: relative;
+            text-shadow: 0px 4px 14px #000000;
         }
 
         nav ul li a:hover {
@@ -113,7 +151,7 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: #969696;
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -127,7 +165,8 @@
             text-align: center;
             color: white;
             position: relative;
-            margin-top: 60px;
+            /* margin-top: 60px; */
+            padding-top: 40px;
         }
 
         .hero-content {
@@ -155,15 +194,6 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .countdown {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 600px;
         }
 
         .countdown h3 {
@@ -255,7 +285,7 @@
             margin-top: 50px;
         }
 
-        .benefit-card {
+        /* .benefit-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
@@ -267,9 +297,9 @@
         .benefit-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
+        } */
 
-        .benefit-icon {
+        /* .benefit-icon {
             width: 80px;
             height: 80px;
             background: linear-gradient(to bottom right, var(--primary), var(--dark));
@@ -280,9 +310,9 @@
             margin: 0 auto 25px;
             font-size: 2rem;
             color: white;
-        }
+        } */
 
-        .benefit-card h3 {
+        /* .benefit-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--dark);
@@ -290,6 +320,269 @@
 
         .benefit-card p {
             color: var(--gray);
+        }  */
+
+
+        /* Seção de Benefícios - Design Moderno */
+        .benefits-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .geometric-pattern {
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.05) 0%, transparent 70%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: 0;
+        }
+
+        .geometric-pattern-2 {
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, rgba(255, 123, 0, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .section-header .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2 .highlight {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-header h2 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: rgba(0, 86, 179, 0.15);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 40px 35px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            transform: translateY(0);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0056b3, #ff7b00);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 86, 179, 0.2);
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-wrapper {
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .icon-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,  #007bff 0%, #003a75 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .icon-background {
+            opacity: 0.15;
+            transform: scale(1.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #0056b3;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.15);
+            color: #003a75;
+        }
+
+        .benefit-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .benefit-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-content h3::after {
+            width: 70px;
+            background: var(--accent-light);
+        }
+
+        .benefit-content p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+
+        .benefit-highlight {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), #ff7b00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .benefits-section {
+                padding: 80px 0;
+            }
+            
+            .section-header h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .section-header p {
+                font-size: 1.1rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                max-width: 550px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .benefits-section {
+                padding: 60px 0;
+            }
+            
+            .section-header {
+                margin-bottom: 50px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .benefit-card {
+                padding: 30px 25px;
+            }
+            
+            .icon-wrapper {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 25px;
+            }
         }
 
         /* Lead Form Section */
@@ -683,7 +976,21 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1224px) {
+            .header-container {
+                max-width: 1010px;
+            }
+        }
+        @media (max-width: 1030px) {
+            .header-container {
+                max-width: 870px;
+            }
+        }
+
         @media (max-width: 992px) {
+            .header-container {
+                max-width: 860px;
+            }
             .hero h1 {
                 font-size: 2.8rem;
             }
@@ -704,8 +1011,15 @@
                 margin-right: auto;
             }
         }
-
+        @media (max-width: 860px) {
+            .header-container {
+                max-width: 700px;
+            }
+        }
         @media (max-width: 768px) {
+            .header-container {
+                max-width: 580px;
+            }
             .hero {
                 height: auto;
                 padding: 100px 0;
@@ -725,7 +1039,12 @@
             
             .mobile-menu-btn {
                 display: block;
+                margin-left: 390px;
             }
+
+            /* .header-container{
+                max-width: 710px;
+            } */
             
             nav ul {
                 position: absolute;
@@ -738,6 +1057,9 @@
                 padding: 20px 0;
                 clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
                 transition: var(--transition);
+                border-radius: 15px 15px 20px 20px;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
             }
             
             nav ul.active {
@@ -756,7 +1078,14 @@
                 font-size: 1.8rem;
             }
         }
-
+        @media (max-width: 702px) {
+            .header-container {
+                max-width: 570px;
+            }
+            .mobile-menu-btn {
+                margin-left: 370px;
+            }
+        }
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2rem;
@@ -783,16 +1112,42 @@
                 padding: 15px 30px;
                 font-size: 1.1rem;
             }
+
+            .mobile-menu-btn {
+                margin-left: 221px;
+            }
+            .header-container {
+                max-width: 420px;
+            }
+
+        }
+
+        @media (max-width: 450px) {
+            .mobile-menu-btn {
+                margin-left: 220px;
+            }
+            .header-container{
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 391px) {
+            .mobile-menu-btn {
+                margin-left: 157px;
+            }
+            .header-container{
+                max-width: 350px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container header-container">
+    <header class="">
+        <div class="container header-container liquid-glass">
             <div class="logo">
                 <i class="fas fa-shield-alt"></i>
-                <span>LIGA</span>
+                <span style="color: #969696;">Liga</span>
             </div>
             <button class="mobile-menu-btn" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -815,7 +1170,7 @@
             <h1>PROTEÇÃO VEICULAR <span>COM ATÉ 70% DE ECONOMIA</span></h1>
             <p>Solução completa para seu veículo com coberturas exclusivas e assistência 24h por um preço justo!</p>
             
-            <div class="countdown">
+            <div class="countdown liquid-glass">
                 <h3>OFERTA ESPECIAL POR TEMPO LIMITADO!</h3>
                 <div class="timer">
                     <div class="timer-item">
@@ -842,7 +1197,7 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits" id="beneficios">
+    <!-- <section class="benefits" id="beneficios">
         <div class="container">
             <div class="section-title">
                 <h2>Por que escolher a <span>Liga Proteção Veicular</span>?</h2>
@@ -896,6 +1251,88 @@
                     </div>
                     <h3>Sem Burocracia</h3>
                     <p>Contratação simples e rápida, sem exames médicos ou avaliações demoradas do veículo.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Benefits Section -2 -->
+    <section class="benefits-section">
+        <div class="geometric-pattern"></div>
+        <div class="geometric-pattern-2"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">VANTAGENS EXCLUSIVAS</span>
+                <h2>Por que escolher a <span class="highlight">Liga Proteção Veicular</span>?</h2>
+                <p>Oferecemos a melhor relação custo-benefício do mercado com coberturas completas e um serviço premium para sua tranquilidade</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-background"></div>
+                        <i class="fas fa-chart-line benefit-icon"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Economia Inteligente</h3>
+                        <p>Economize até <span class="benefit-highlight">70% em comparação</span> com seguros tradicionais, mantendo coberturas equivalentes ou superiores para seu veículo.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-background"></div>
+                        <i class="fas fa-headset benefit-icon"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Assistência Premium 24h</h3>
+                        <p>Socorro em todo o território nacional a qualquer hora, todos os dias da semana com atendimento <span class="benefit-highlight">prioritário</span> para clientes Liga.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-background"></div>
+                        <i class="fas fa-shield-alt benefit-icon"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Cobertura Completa</h3>
+                        <p>Proteção <span class="benefit-highlight">360 graus</span> contra colisão, incêndio, roubo, vidros, danos naturais e mais outras coberturas essenciais.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-background"></div>
+                        <i class="fas fa-network-wired benefit-icon"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Rede Credenciada</h3>
+                        <p>Mais de <span class="benefit-highlight">5.000 oficinas</span> especializadas em todo o Brasil com padrão de qualidade certificado pela Liga.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-background"></div>
+                        <i class="fas fa-car-side benefit-icon"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Carro Reserva</h3>
+                        <p>Até no plano mais simples oferecemos <span class="benefit-highlight">carro ou moto reserva</span> para você não ficar a pé.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-background"></div>
+                        <i class="fas fa-bolt benefit-icon"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Zero Burocracia</h3>
+                        <p>Contratação <span class="benefit-highlight">100% digital</span> em menos de 5 minutos, sem exames médicos ou avaliações demoradas.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1173,9 +1610,9 @@
         });
         
         // Countdown Timer
+        const targetDate = new Date();
         function updateCountdown() {
             const now = new Date();
-            const targetDate = new Date();
             targetDate.setDate(now.getDate() + 3); // 3 days from now
             
             const diff = targetDate - now;
@@ -1189,6 +1626,8 @@
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+           
         }
         
         setInterval(updateCountdown, 1000);
